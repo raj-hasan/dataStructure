@@ -1,0 +1,30 @@
+This article will show you how to remotely debug your application using Tomcat and Eclipse.
+First we need to create a new file "setenv.bat" within <tomcat dir>/bin
+This file contains - 
+*************************************************************************************
+  set JPDA_OPTS=-agentlib:jdwp=transport=dt_socket,address=1043,server=y,suspend=n
+*************************************************************************************
+
+Next step is to edit the "stratup.bat" - 
+We need to add "jpda" before the last line before start.
+
+So the last 2 lines of "startup.bat" will be  - 
+**********************************************************************
+  call "%EXECUTABLE%" jpda start %CMD_LINE_ARGS%
+  :end
+**********************************************************************
+
+Now the setup is ready we have enabled the jpda port at 1043.
+
+
+Start the server and put your debug where you want to put.
+
+Next step is to configure debug for the project from eclipse and listen to port 1043.
+Make sure, your tomcat server is running.
+Right click on the project. Go to "Debug as" -> "Debug Configurations..."
+ - It will open a new window. Right click "Remote Java Application" from the left menu.
+ At the "Connect" tab, set Port as 1043.
+ Click on Apply.
+ And then "Debug".
+ 
+ We are reday to have fun.
