@@ -1,2 +1,2 @@
 # ds
-This is my personal java development project.
+This is my data structure practising project
