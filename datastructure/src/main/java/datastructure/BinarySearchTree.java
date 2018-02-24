@@ -73,6 +73,21 @@ public class BinarySearchTree {
         }
     }
 
+    public Node findNode(int key){
+        Node focusNode = root;
+
+        while (focusNode.key != key){
+            if(key<focusNode.key)
+                focusNode=focusNode.leftChild;
+            else
+                focusNode=focusNode.rightChild;
+
+            if(focusNode==null)
+                return null;
+        }
+        return focusNode;
+    }
+
     public static void main(String [] args){
         BinarySearchTree tree= new BinarySearchTree();
         tree.addNode(50,"Principal");
@@ -84,6 +99,8 @@ public class BinarySearchTree {
         tree.addNode(90,"Pion");
 
         tree.postOrderTravarsal(tree.root);
+
+        System.out.println("Find ="+tree.findNode(30));
 
     }
 
