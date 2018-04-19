@@ -4,6 +4,7 @@ package datastructure;
 /**
  * Binary Search tree is a special kind of tree which has a root and
  * left nodes are always less than the right node
+ *
  */
 public class BinarySearchTree {
     private Node root;
